@@ -8,14 +8,14 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-
 </head>
-
 <body>
-
+<canvas id="matrix"></canvas>
+<div class="scanlines"></div>
 <div class="grid"></div>
 
 <div class="container">
+<div class="launch-box">
 
 <h1 class="logo">ct<span>Tech</span></h1>
 
@@ -28,27 +28,66 @@
 <script>
 new Typed("#typed", {
   strings: [
-    "Modern technology solutions.",
-    "Automation and infrastructure.",
-    "Digital services for homes and businesses."
+    "Modern technology solutions",
+    "Digital services",
+	"Website design",
+	"Professional email for business",
+	"General IT support",
+	"Photo digitization"
   ],
-  typeSpeed: 40,
+  typeSpeed: 60,
   backSpeed: 20,
   loop: true
 });
 </script>
-<br><br>
+<br><br><br><br>
 
-<div class="status">
-<span class="dot"></span> Launching soon
+<a href="mailto:hello@cttech.au?subject=CTTech%20Enquiry" class="cyber-button">
+  Contact Me
+</a>
 </div>
-
 </div>
+<div class="footer-box">
+	<footer>
+	© 2026 ctTech
+	ABN: 11615163290
+	</footer>
+</div>
+<script>
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
 
-<footer>
-© 2026 ctTech
-ABN: 11615163290
-</footer>
+canvas.height = window.innerHeight;
+canvas.width = window.innerWidth;
 
+const letters = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$?";
+const fontSize = 16;
+const columns = canvas.width / fontSize;
+
+const drops = [];
+
+for (let x = 0; x < columns; x++)
+  drops[x] = 1;
+
+function draw() {
+  ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  ctx.fillStyle = "#67e8f9";
+  ctx.font = fontSize + "px monospace";
+
+  for (let i = 0; i < drops.length; i++) {
+    const text = letters.charAt(Math.floor(Math.random() * letters.length));
+    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975)
+      drops[i] = 0;
+
+    drops[i]++;
+  }
+}
+
+setInterval(draw, 33);
+</script>
 </body>
 </html>
