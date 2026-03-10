@@ -1,2 +1,2 @@
 # cttech-website
-cttech.au website. Deployed as a Cloudflare worker page
+cttech.au website. Deployed as a Cloudflare worker page.
