@@ -1,0 +1,18 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "cttech-website",
+  "compatibility_date": "2026-05-12",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": "."
+  },
+  // Serve only on the custom domain. Do not re-enable *.workers.dev
+  // or preview URLs on deploy; they bypass the zone WAF rules.
+  "workers_dev": false,
+  "preview_urls": false
+}

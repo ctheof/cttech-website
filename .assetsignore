@@ -1,0 +1,14 @@
+# Files that must not be served as public static assets.
+# Workers Builds uploads the whole repo folder ("assets.directory": "."),
+# so anything not listed here becomes downloadable from the site.
+.git
+.github
+.gitattributes
+.gitignore
+.assetsignore
+wrangler.jsonc
+README.md
+node_modules
+.wrangler
+.dev.vars*
+.env*
